@@ -1,0 +1,211 @@
+[]  A set of characters
+\   Signals a special sequence (can be used to escape special characters)
+.   Any character(except newline character)
+^   start with
+$   end with
+*   zero or more occurrences 
++   One or more occurrences
+{}  Exactly the specific number of occurrences
+|   Either or
+()  Capture and group
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\A
+
+Matches the beginning of the string.
+Example:
+Pattern: \AHello
+String: "Hello World" → Match.
+String: "Say Hello" → No match.
+
+
+\b
+
+Matches if the specified characters are at the beginning or end of a word.
+Example:
+Pattern: \bcat
+String: "cat is here" → Match (at the start of the word).
+Pattern: cat\b
+String: "The cat" → Match (at the end of the word).
+
+
+\B
+
+Matches if the specified characters are NOT at the beginning or end of a word.
+Example:
+Pattern: \Bcat
+String: "concatenate" → Match (inside the word).
+String: "cat" → No match.
+
+
+\d
+
+Matches any digit (0–9).
+Example:
+Pattern: \d
+String: "123" → Matches each digit separately.
+String: "abc" → No match.
+
+
+\D
+
+Matches any non-digit character.
+Example:
+Pattern: \D
+String: "abc123" → Matches "abc".
+\s
+
+Matches any whitespace character (spaces, tabs, newlines).
+Example:
+Pattern: \s
+String: "a b" → Matches the space between "a" and "b".
+
+
+\S
+
+Matches any non-whitespace character.
+Example:
+Pattern: \S
+String: "a b" → Matches "a" and "b".
+
+
+\w
+
+Matches any word character (letters, digits, and underscores: [a-zA-Z0-9_]).
+Example:
+Pattern: \w
+String: "abc_123" → Matches all characters.
+
+
+\W
+
+Matches any non-word character.
+Example:
+Pattern: \W
+String: "a+b" → Matches "+".
+
+
+\Z
+
+Matches the end of the string.
+Example:
+Pattern: world\Z
+String: "Hello world" → Match.
+String: "world is big" → No match.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[arn]
+Matches any one of the specified characters a, r, or n.
+Example:
+Pattern: [arn]
+String: "car" → Matches a and r.
+String: "bat" → Matches a.
+
+
+[a-n]
+Matches any lowercase letter alphabetically between a and n.
+Example:
+Pattern: [a-n]
+String: "hello" → Matches h, e, l, l.
+String: "zoo" → No match (letters are outside the range a-n).
+
+
+[^arn]
+Matches any character except a, r, or n.
+The caret (^) inside the brackets denotes a negation.
+Example:
+Pattern: [^arn]
+String: "rain" → Matches i (not a, r, or n).
+String: "arm" → Matches m.
+
+
+[0123]
+Matches any of the specified digits 0, 1, 2, or 3.
+Example:
+Pattern: [0123]
+String: "456012" → Matches 0, 1, and 2.
+
+
+[0-9]
+Matches any digit between 0 and 9.
+This is equivalent to the shorthand \d.
+Example:
+Pattern: [0-9]
+String: "Year 2024" → Matches 2, 0, 2, and 4.
+
+
+[0-5][0-9]
+Matches any two-digit number between 00 and 59.
+It combines two ranges:
+The first digit must be between 0 and 5.
+The second digit must be between 0 and 9.
+Example:
+Pattern: [0-5][0-9]
+String: "Time is 10:45" → Matches 10 and 45.
+
+
+[a-zA-Z]
+Matches any letter between a and z or A and Z (case-insensitive).
+Example:
+Pattern: [a-zA-Z]
+String: "Hello123" → Matches H, e, l, l, o.
+
+
+[+]
+Matches the literal + character.
+In sets, special characters like +, ., |, etc., lose their special meaning, so they are treated as literal characters.
+Example:
+Pattern: [+]
+String: "5 + 3 = 8" → Matches +.
